@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ConsultaFarma</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estiloAdicional.css">
+    <link rel="shortcut icon" type="image/png" href="imgs/pills.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+
+</head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Sul', 232],
+        ['Oeste', 266],
+        ['Centro-Oeste',260],
+        ['Leste', 340],
+        ['Norte', 200]
+      ]);
+
+      var options = {
+        title: 'Quantidade busca de remédio no último mês',
+        pieHole: 0.5,
+        slices: {
+            0: { color: '#134a5f' },
+            1: { color: '#195971' },
+            2: { color: '#307e9c' },
+            3: { color: '#4e97b3' },
+            4: { color: '#7fcdea' }
+          }
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      chart.draw(data, options);
+    }
+
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawBar);
+
+    function drawBar() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Remédios', 'Buscas',],
+        ['ALBENDAZOL', 8175000],
+        ['DIAZEPAM', 3792000],
+        ['VERAPAMIL', 2695000],
+        ['EPINEFRINA', 2099000],
+        ['ATENOLOL', 1526000]
+      ]);
+
+      var options = {
+        title: 'Remédios buscados no último mês',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Quantidade de buscas',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Nome remédio'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar">
+    <!--Navbar do site -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-nav-personalizado sticky-top">
+        <a class="navbar-brand" href="index.html">
+          <img src="imgs/farma.jpeg" width="105" height="55" alt="">
+        </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="navbar-collapse collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="consulta.php">PESQUISAR<span class="sr-only">(Página atual)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="estatisticas.html">ESTATÍSTICAS<span class="sr-only">(Página atual)</span></a>
+            </li> 
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="faq.html">PERGUNTAS FREQUENTES<span class="sr-only">(Página atual)</span></a>
+            </li>     
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Header do site -->
+      <header class="masthead bg-white text-white text-center" id="head">
+        <div class="jumbotron jumbotron-fluid bg-white">
+          <div class="container-fluid">
+            <h1 class="text-dark display-4 text-center">Estatísticas</h1>
+          </div>
+        </div>
+      </header>  
+
+      <!--Graficos-->
+ 
+          <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+          <div id="chart_div"></div>
+
+          <a title="Compartilhar" href="https://api.whatsapp.com/send?text= Acabei de consultar a disponibilidade de um remédio do SUS de forma online e rápida ! Consulte você também: http://localhost/consultaFarma"><img src="imgs/wpp.png" width="80" height="70" /> Clique aqui para compartilhar este serviço</a>
+
+    
+      <!-- Footer -->
+      <footer class="bg-light py-5 ">
+        <div class="container text-center">
+           <div class="small text-center text-muted">Copyright © 2019 - ConsultaFarma</div>
+        </div>
+      </footer>
+
+  </body>
+</html>
+
+
+
+ 
